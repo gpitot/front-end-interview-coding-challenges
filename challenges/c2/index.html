@@ -8,6 +8,70 @@
 
     <style>
         /* Write your css here */
+        header {
+            display:flex;
+            flex-flow:row wrap;
+            height:75px;
+            justify-content: space-between;
+            align-items:center;
+            padding:0 25px;
+        }
+
+        .logo {
+            height:100%;
+        }
+
+        .logo img {
+            height:100%;
+            width:auto;
+            display:block;
+        }
+
+
+        .top-nav {
+            display:flex;
+            font-size:18px;
+            
+        }
+
+        .top-nav li {
+            margin:0 10px;
+        }
+
+
+        main {
+            display:flex;
+            width:1200px;
+            max-width:100%;
+            margin:18px auto;
+
+        }
+
+        main article {
+            flex-grow: 1;
+        }
+
+        article p {
+            font-size:18px;
+        }
+
+        main aside {
+            flex-basis:478px;
+            flex-shrink:0;
+        }
+
+        .sidebar {
+            font-size:18px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            color:blue;
+        }
+        
     </style>
 
 </head>
