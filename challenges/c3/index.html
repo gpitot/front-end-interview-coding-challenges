@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+      @keyframes slideIn {
+        from {
+          transform: translateX(-100%);
+        }
+        30% {
+          transform: translateX(0);
+        }
+
+        70% {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(100%);
+        }
+      }
+
+      .cut-text {
+        position: relative;
+        margin: 300px;
+        overflow:hidden;
+        display: inline-block;
+      }
+
+      .top,
+      .bottom {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 60px;
+        transform: translateX(-100%);
+        animation:slideIn 3600ms ease infinite;
+        font-weight:bold;
+      }
+
+      .top {
+        color: red;
+        clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+        position:relative;
+      }
+
+      .bottom {
+        color: black;
+        clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+        animation-delay: 300ms;
+      }
+    </style>
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+
+    <div class="cut-text">
+      <div class="top">AWESOME ALPHA</div>
+      <div class="bottom">AWESOME ALPHA</div>
+    </div>
+  </body>
+</html>
