@@ -1,21 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Text transition challenge</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Text transition challenge</title>
-</head>
+    <style>
+      h2 {
+        margin: 50px auto;
+        padding: 50px;
+        background: black;
+      }
 
-<body>
+      @keyframes fadeUp {
+        from {
+          transform: translateY(30px);
+          opacity: 0;
+        }
 
+        20% {
+          transform: translateY(0);
+          opacity: 1;
+        }
 
-  <h2>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quae perspiciatis quis accusantium, excepturi maxime
-    quam facere asperiores ducimus aut molestias, deleniti voluptatem unde illo! Dolores minus facilis assumenda maxime!
-  </h2>
+        50% {
+          transform: translateY(0);
+          opacity: 1;
+        }
 
-</body>
+        80% {
+          transform: translateY(-30px);
+          opacity: 0;
+        }
 
+        to {
+          transform: translateY(-30px);
+          opacity: 0;
+        }
+      }
+
+      .outer {
+        overflow: hidden;
+      }
+      .fade-up {
+        display: block;
+        animation: fadeUp 4000ms ease infinite;
+        font-size: 24px;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quae
+      perspiciatis quis accusantium, excepturi maxime quam facere asperiores
+      ducimus aut molestias, deleniti voluptatem unde illo! Dolores minus
+      facilis assumenda maxime!
+    </h2>
+
+    <script>
+      //seperate content into "lines" of 5 words each
+      const parent = document.querySelector("h2");
+      const contentArray = parent.innerText.split(" ");
+
+      const lines = [];
+      while (contentArray.length > 0) {
+        lines.push(contentArray.splice(0, 5));
+      }
+
+      parent.innerText = "";
+      lines.forEach((line, index) => {
+        //create lines wrapped in a span and outer (to hide content overflow as it moves up)
+        const outer = document.createElement("div");
+        outer.classList.add("outer");
+        const span = document.createElement("span");
+        span.innerText = `${line.join(" ")}`; //get line of content with spaces
+        span.classList.add("fade-up");
+        span.style.animationDelay = `${index * 100}ms`; //add animation delay for each line
+
+        outer.appendChild(span);
+        parent.appendChild(outer);
+      });
+    </script>
+  </body>
 </html>
